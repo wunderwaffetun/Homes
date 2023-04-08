@@ -1,0 +1,131 @@
+body {
+  color:aliceblue;
+  margin:0px!important;
+  padding:0px;
+  background: rgba(145,145,145,1);
+  padding:0!important;
+}
+
+
+.mainPart {
+  display: block;
+  position: relative;
+  width: min(calc(100%), 1400px);
+  padding:0px!important;
+  margin-top: 0;
+  min-height: 100%;
+  z-index: -1;
+  float:left;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: min(calc(100%), 1400px);
+}
+
+.blockUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.blockUp>h1 {
+  margin-top:1rem!important;
+}
+
+.leftBut{
+  position: absolute;
+  top:25px;;
+  left:25px;
+}
+.rightButmedium {
+  position:absolute;
+  top:0;
+  right:0;
+}
+.rightBut{
+  position: absolute;
+  top:25px;
+  right:25px;
+}
+
+.btn-large {
+  width: 75px!important;
+  height: 75px!important;
+}
+.btn-floating.btn-large i {
+  line-height: 75px !important;
+  font-size: 40px!important;
+}
+
+.btn-medium {
+  width: 45px!important;
+  height: 45px!important;
+}
+.btn-floating.btn-medium i {
+  line-height: 37px !important;
+  font-size: 30px!important;
+}
+
+.validate {
+  
+  height: 3rem!important;
+  width: 97%!important;
+  font-size: 28px!important;
+}
+
+.block {
+  display:block;
+  position: relative;
+  margin: 13%;
+  margin-top: 10px;
+  margin-bottom: 0;
+  max-width: calc(90%);
+  min-width: 220px;
+  float: left;
+}
+.blockObject{
+  background-color: rgb(202, 171, 131)!important;
+  display:block;
+  position: relative;
+  float: left;
+}
+
+.hightSmoleBlock {
+  height :50px;
+}
+
+.block>img {
+  width: 250px;
+}
+
+.border {
+  border-style: solid;
+  border-radius: 10px;
+  background-color: rgb(33, 126, 207);
+}
+.hightBord {
+  border-style: solid;
+  border-radius: 50px;
+  background-color: rgb(33, 126, 207);
+}
+
+.gray {
+  background-color: rgb(86, 85, 85);
+}
+
+.fullScreen {
+  display:block;
+  position: relative;
+  min-width: min(max(calc(74%),220px));
+  float: left;
+}
+
+#formForAuto>label {
+  margin-left: 5px;
+}
+#formForAuto>input {
+  margin-right: 5px;
+}
