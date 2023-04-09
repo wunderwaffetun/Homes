@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { coordinates } from "../../pages/Home/Home"
 
 import "./Card.css"
 
@@ -10,15 +11,23 @@ import DescriptionOfCard from '../../component/DescriptionOfCard/DescriptionOfCa
 import DocumentsCard from '../../component/DocumentsCard/DocumentsCard';
 import CarouselCard from '../../component/CarouselCard/CarouselCard';
 import Modal from '../../component/Modal/Modal'
+import NeedFucts from '../../component/NeedFucts/NeedFucts'
 
 
 interface fetchData {
   slides: File[],
   docs: File[],
-  description: string,
+  descriptionCard: string,
 }
 
+interface propCard {
+  coordinates: coordinates
+}
 
+const coord: coordinates = {
+  coordX: 46.043644, //37.497845;//46.043644;//
+  coordY: 51.540884, //55.812580;//51.540884;//
+} 
 
 const param = 1
 
@@ -49,7 +58,7 @@ const Card: React.FC = () => {
         setFilesSliderforSave(response.data.slides)
         setFilesDocs(response.data.docs)
         setFilesDocsforSave(response.data.docs)
-        setDescription(response.data.description)
+        setDescription(response.data.descriptionCard)
       })
       .catch((error) => console.log(error))
   }, [])
@@ -134,17 +143,23 @@ const Card: React.FC = () => {
 
   return (
     <div className='container'>
+      
+      <a className ="btn-floating btn-large waves-effect waves-light yellow rightBut" id="btnProfile"><i className="large material-icons">account_box</i></a>
       {
          role === "admin" ? 
          <>
           {adminPanel ? 
-            <button className='redactorButton' onClick={() => setAdminPanel(prev => !prev)}>
-              редактировать
+            <button className='redactorButton btn-floating btn-large waves-effect waves-light blue leftBut' id="btnFilter" onClick={() => setAdminPanel(prev => !prev)}>
+              <i className="large material-icons">build</i>
             </button>
           :
-            <div className='redactorButton'>
-              <button type='submit' form='files'>сохранить</button>
-              <button onClick={() => Reject()}>отменить</button>
+            <div className=''>
+              <button className="btn-floating btn-large waves-effect waves-light blue leftBut" id="btnFilter" onClick={() => Reject()}>
+                <i className="large material-icons">create</i>
+              </button>
+              <button type='submit' className ="btn-floating btn-large waves-effect waves-light yellow rightBut" id="btnEdit" form='files' >
+                <i className="large material-icons">arrow_back</i>
+              </button>
             </div>
           }
         </>
@@ -156,6 +171,8 @@ const Card: React.FC = () => {
           <h1 className='ProjectName'>Название Проекта</h1>
         </div>
         <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} refer={refFormSlider} />
+
+        <NeedFucts adminPanel={adminPanel} coordinates={coord} />
 
         <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={filesDocsforSave} deleteDoc={deleteDoc} OnSumbitSliderFiles={OnSumbitDocsFiles} setImages={setFilesDocs} refer={refFormDocs} />
 
