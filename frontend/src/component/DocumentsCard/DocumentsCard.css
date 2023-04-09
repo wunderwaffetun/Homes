@@ -1,0 +1,48 @@
+.divFiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.documents {
+    display: flex;
+    border: 2px black solid;
+    width: 90%;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    height: 10%;
+}
+
+.document {
+    position: relative;
+    display: flex;
+    width: 10%;
+    height: 10%;
+}
+
+.LinkDocument > img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+}
+
+.LinkDocument {
+    margin: 0;
+}
+
+.deleteDoc {
+    cursor: pointer;
+    z-index: 3;
+    position: absolute;
+    top: -15px;
+    right: 5px;
+}
+
+.adminSlider {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    border: 2px black solid;
+}
