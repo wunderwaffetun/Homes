@@ -1,0 +1,237 @@
+* Unmerged path frontend/src/index.js
+[1mdiff --git a/frontend/src/index.tsx b/frontend/src/index.tsx[m
+[1mindex 180f9ed..c1550f2 100644[m
+[1m--- a/frontend/src/index.tsx[m
+[1m+++ b/frontend/src/index.tsx[m
+[36m@@ -1,6 +1,5 @@[m
+ import React from "react";[m
+ import ReactDOM from "react-dom/client";[m
+[31m-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";[m
+ [m
+ [m
+ import "./index.css";[m
+[1mdiff --git a/node_modules/.package-lock.json b/node_modules/.package-lock.json[m
+[1mdeleted file mode 100644[m
+[1mindex 0969aac..0000000[m
+[1m--- a/node_modules/.package-lock.json[m
+[1m+++ /dev/null[m
+[36m@@ -1,12 +0,0 @@[m
+[31m-{[m
+[31m-  "name": "project1",[m
+[31m-  "lockfileVersion": 2,[m
+[31m-  "requires": true,[m
+[31m-  "packages": {[m
+[31m-    "node_modules/materialize-css": {[m
+[31m-      "version": "1.0.0",[m
+[31m-      "resolved": "https://registry.npmjs.org/materialize-css/-/materialize-css-1.0.0.tgz",[m
+[31m-      "integrity": "sha512-4/oecXl8y/1i8RDZvyvwAICyqwNoKU4or5uf8uoAd74k76KzZ0Llym4zhJ5lLNUskcqjO0AuMcvNyDkpz8Z6zw=="[m
+[31m-    }[m
+[31m-  }[m
+[31m-}[m
+[1mdiff --git a/node_modules/materialize-css/CHANGELOG.md b/node_modules/materialize-css/CHANGELOG.md[m
+[1mdeleted file mode 100644[m
+[1mindex 6f84fb5..0000000[m
+[1m--- a/node_modules/materialize-css/CHANGELOG.md[m
+[1m+++ /dev/null[m
+[36m@@ -1,521 +0,0 @@[m
+[31m-Changelog[m
+[31m-=======[m
+[31m-Bolded styling surrounded by emojis indicates a breaking change.[m
+[31m-[m
+[31m-## 1.0.0 (September 9th, 2018)[m
+[31m-- [Full Changelog here](https://github.com/Dogfalo/materialize/blob/v1-dev/v1-changelog.md)[m
+[31m-[m
+[31m-## 1.0.0-rc.2 (June 23rd, 2018)[m
+[31m-- Autocomplete[m
+[31m-  - Fixed bug where Autocomplete did not open properly in certain cases with keyboard focus[m
+[31m-[m
+[31m-- Carousel[m
+[31m-  - Fix noWrap option bug[m
+[31m-[m
+[31m-- Collapsible[m
+[31m-  - Now correctly removes all event listeners on destroy[m
+[31m-[m
+[31m-- Materialbox[m
+[31m-  - Destroy now removed wrapper element added during intialization[m
+[31m-[m
+[31m-- Pushpin[m
+[31m-  - Fixed bug on IE11 where class was not removed properly[m
+[31m-[m
+[31m-- Select[m
+[31m-  - No longer triggers onchange event when selecting the same option[m
+[31m-[m
+[31m-- Sidenav[m
+[31m-  - Destroy now reenables body scrolling if Sidenav was destroyed while it was open[m
+[31m-[m
+[31m-- Tabs[m
+[31m-  - Tab indicator no longer displays improperly when a scrollbar is present in the element[m
+[31m-[m
+[31m-[m
+[31m-## 1.0.0-rc.1 (May 1st, 2018)[m
+[31m-- Autocomplete[m
+[31m-  - Added open and close methods[m
+[31m-  - Fixed bug where Autocomplete would close on click[m
+[31m-[m
+[31m-- Datepicker[m
+[31m-  - Added autoClose option[m
+[31m-[m
+[31m-- Modal[m
+[31m-  - Fixed issue with focus with nested modals[m
+[31m-[m
+[31m-- Select[m
+[31m-  - Removed `active` class on option elements[m
+[31m-  - Fixed bug where `selected` class was not properly removed on option elements[m
+[31m-[m
+[31m-- Sidenav[m
+[31m-  - Destroy method now correctly removes style property[m
+[31m-[m
+[31m-- Text Input[m
+[31m-  - Fixed bug where autofill on chrome overlapped text input[m
+[31m-[m
+[31m-- Toast[m
+[31m-  - Fixed bug where Toast did not respect inDuration option[m
+[31m-[m
+[31m-- Tooltip[m
+[31m-  - Fixed tooltip positioning bug in certain scenarios when html height was less than screen height[m
+[31m-  - Fixed bug where tooltip stayed open on click[m
+[31m-[m
+[31m-[m
+[31m-## 1.0.0-beta (March 21st, 2018)[m
+[31m-- Autocomplete[m
+[31m-  - Now uses dropdown[m
+[31m-[m
+[31m-- Carousel[m
+[31m-  - Added numVisible option[m
+[31m-[m
+[31m-- Collapsible[m
+[31m-  - Added keyboard support[m
+[31m-[m
+[31m-- Dropdown[m
+[31m-  - Fixed scrolling dropdown bug on touch devices[m
+[31m-[m
+[31m-- Javascript Initialization[m
+[31m-  - Added AutoInit function[m
+[31m-[m
+[31m-- Modals[m
+[31m-  - Focus now stays within open modal[m
+[31m-[m
+[31m-- Pickers[m
+[31m-  - Standardized action buttons to match those on android[m
+[31m-  - Added support for date and time input types[m
+[31m-  - **fromnow renamed to fromNow**[m
+[31m-[m
+[31m-- Select[m
+[31m-  - Dropdown scrolls to selected option[m
+[31m-[m
+[31m-- Sidenav[m
+[31m-  - Now detects vertical scrolling[m
+[31m-[m
+[31m-- Tabs[m
+[31m-  - Fixed tab preselection on swipeable tabs[m
+[31m-[m
+[31m-- TapTarget[m
+[31m-  - **Reverted name change from FeatureDiscovery**[m
+[31m-[m
+[31m-- Tooltips[m
+[31m-  - Added keyboard support[m
+[31m-[m
+[31m-[m
+[31m-## 1.0.0-alpha.4 (February 18th, 2018)[m
+[31m-- Badge[m
+[31m-  - Fixed display issue when used in a table[m
+[31m-[m
+[31m-- Chips[m
+[31m-  - Fixed autocomplete initialization[m
+[31m-[m
+[31m-- CSS[m
+[31m-  - Added hide and show classes for extra large breakpoint[m
+[31m-  - Added small buttons[m
+[31m-  - Fixed input helper text alignment when using prefix[m
+[31m-[m
+[31m-- Date Picker[m
+[31m-  - Fixed month and year select overflow issues[m
+[31m-  - Added additional date formatting options[m
+[31m-[m
+[31m-- Dropdown[m
+[31m-  - Added container option[m
+[31m-  - Dropdown on mobile now correctly selects the right item[m
+[31m-  - Dropdown now closes correctly on iOS devices[m
+[31m-[m
+[31m-- Materialbox[m
+[31m-  - Fixed error with photo caption[m
+[31m-  - Fixed issues caused by width and height attributes[m
+[31m-  - Fixed issues caused by max-width and max-height[m
+[31m-[m
+[31m-- Modal[m
+[31m-  - Improved support for nested modals[m
+[31m-[m
+[31m-- Parallax[m
+[31m-  - Fixed infinite loop bug[m
+[31m-[m
+[31m-- Select[m
+[31m-  - *Renamed plugin class to `FormSelect`*[m
+[31m-  - *Renamed jQuery plugin to `formSelect`*[m
+[31m-[m
+[31m-- Sidenav[m
+[31m-  - Fixed issues with draggable option when used with fixed sidenav[m
+[31m-[m
+[31m-- Time Picker[m
+[31m-  - Changed i18n options to be more consistent with date picker[m
+[31m-  - Fixed error with auto close option[m
+[31m-[m
+[31m-[m
+[31m-## 1.0.0-alpha.3 (December 29th, 2017)[m
+[31m-- *Initialization code for all components changed. E.g. Change`new M.Tooltip(el, options)` to `M.Tooltip.init(el, options)`*[m
+[31m-  - This was done so that the same initialization code can be used to initialize single Elements as well as NodeLists and jQuery element objects[m
+[31m-[m
+[31m-- Added in onOpen and OnClose callbacks for appropriate plugins[m
+[31m-[m
+[31m-- Datepicker[m
+[31m-  - Destroy function added[m
+[31m-[m
+[31m-- Feature Discovery[m
+[31m-  - Added open and close callbacks[m
+[31m-[m
+[31m-- Materialbox[m
+[31m-  - Added open and close callbacks[m
+[31m-[m
+[31m-- Modal[m
+[31m-  - Added open and close callbacks for consistency[m
+[31m-  - Removed ready and complete callbacks[m
+[31m-[m
+[31m-- Parallax[m
+[31m-  - Has responsiveThreshold option[m
+[31m-  - Destroy function added[m
+[31m-[m
+[31m-- Pushpin[m
+[31m-  - added onPositionChange callback[m
+[31m-[m
+[31m-## 1.0.0-alpha.2 (November 30th)[m
+[31m-- Chips[m
+[31m-  - Fixed and standardized chips callback parameters[m
+[31m-[m
+[31m-- Datepicker[m
+[31m-  - Fixed date format option[m
+[31m-  - Scrollbar no longer unecessarily appears when using datepicker[m
+[31m-  - Fixed bug where using month and year selectors didn't change date[m
+[31m-[m
+[31m-- Dropdown[m
+[31m-  - Removed automatic focus highlight on open[m
+[31m-[m
+[31m-- Textarea[m
+[31m-  - Fixed error where text was cut off on Firefox[m
+[31m-[m
+[31m-- Tabs[m
+[31m-  - Fixed error with pure JavaScript initialization[m
+[31m-  - Fixed error where a tab with no content would break tabs[m
+[31m-[m
+[31m-- Timepicker[m
+[31m-  - Fixed error with twelveHour options[m
+[31m-[m
+[31m-- Replaced velocity.js with anime.js[m
+[31m-[m
+[31m-## 1.0.0-alpha.1 (November 10th)[m
+[31m-- Dropdown[m
+[31m-  - rewritten with classes[m
+[31m-  - Plugin is initialized on `.dropdown-content` instead of `.dropdown-button`[m
+[31m-  - Renamed classes `.dropdow
