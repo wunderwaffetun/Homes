@@ -14,7 +14,7 @@ const root = ReactDOM.createRoot(
 //ReactDOM.render(<App />, document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Card />
+    <App />
   </React.StrictMode>
 );
 
