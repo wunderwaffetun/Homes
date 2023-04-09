@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ProjectName {
+    font-size: 40px;
+}
+
+
+.SliderDiv {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.divFiles {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.documents {
+    display: flex;
+    border: 2px black solid;
+    width: 90%;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    height: 10%;
+}
+
+.document {
+    display: flex;
+    width: 10%;
+    height: 10%;
+}
+
+
