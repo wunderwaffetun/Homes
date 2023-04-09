@@ -1,0 +1,16 @@
+nav{
+  all: unset;
+  display: flex;
+  justify-content: center;
+  height: 52px;
+  align-items: center;
+}
+
+.nav-link{
+  margin: 0 10px;
+  transition: all .4s;
+}
+
+.nav-active{
+  color: #DC3545;
+}
