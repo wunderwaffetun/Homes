@@ -9,7 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import DescriptionOfCard from '../../component/DescriptionOfCard/DescriptionOfCard';
 import DocumentsCard from '../../component/DocumentsCard/DocumentsCard';
 import CarouselCard from '../../component/CarouselCard/CarouselCard';
-import Modal from '../../component/Modal/Modal'
+import Modal from '../../component/Modal/Modal';
 
 
 interface fetchData {

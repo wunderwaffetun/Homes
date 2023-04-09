@@ -19,8 +19,11 @@ body {
 }
 
 .center {
+  display: flex;
   margin-left: auto;
-  margin-right: auto;
+  margin-right: auto ;
+  align-items: center;
+  justify-content: center;
   width: min(calc(100%), 1400px);
 }
 
@@ -128,4 +131,213 @@ body {
 }
 #formForAuto>input {
   margin-right: 5px;
+}
+
+.blockObject{
+  background-color: rgb(202, 171, 131)!important;
+  display:block;
+  position: relative;
+  float: left;
+  height: 70px;
+}
+.heightlyBlockObject{
+  background-color: rgb(202, 171, 131)!important;
+  display:block;
+  position: relative;
+  float: left;
+  min-height: 50px;
+  overflow: auto;
+}
+
+.textForCard{
+  font-size: 28px;
+  color: aliceblue;
+}
+.normal {
+  font-size: 28px!important;
+  color: aliceblue;
+}
+.blockWithoutMargin {
+  display:block;
+  position: relative;
+  min-width: 220px;
+  float: left;
+}
+
+.margin{
+  margin: 10px!important;
+}
+
+.marginFivePersent{
+  margin-left: 5%;
+}
+
+.marginFivePersentRight {
+  margin-right: 5%;
+}
+
+.fiftin{
+  width: 45%!important;
+}
+.there{
+  width: 30%!important;
+}
+
+.hungreed{
+  width: 100%!important;
+}
+.hungreedWithMArgin{
+  width: 95%!important;
+}
+
+
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+  height: 3.8rem!important;
+  color:aliceblue!important;
+}
+
+
+.input-file {
+	position: relative;
+}
+.input-file-btn {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+	color: rgb(255 255 255);
+	text-align: center;
+	border-radius: 4px;
+	background-color: #419152;
+	line-height: 22px;
+	height: 40px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	border: none;
+	margin: 0;
+	transition: background-color 0.2s;
+}
+.input-file-text {
+	padding: 0 10px;
+	line-height: 40px;
+	display: inline-block;
+}
+.input-file input[type=file] {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	display: block;
+	width: 0;
+	height: 0;
+}
+ 
+/* Focus */
+.input-file input[type=file]:focus + .input-file-btn {
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+ 
+/* Hover/active */
+.input-file:hover .input-file-btn {
+	background-color: #59be6e;
+}
+.input-file:active .input-file-btn {
+	background-color: #2E703A;
+}
+ 
+/* Disabled */
+.input-file input[type=file]:disabled + .input-file-btn {
+	background-color: #eee;
+}
+
+
+#file-preview {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file-container {
+  flex-basis: 25%;
+}
+
+.file-container img {
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.forMicroCard > img {
+  max-width: 40%;
+  max-height: 200px;
+}
+.marginTop{
+  margin-top: 20px!important;
+}
+.boxBlock{
+  position: relative;
+  float:left;
+  background-color: rgb(120, 120, 154);
+  width: 24%;
+  height: calc(width+1px);
+  margin-left: calc(4% /5);
+  
+  margin-top: calc(4% /5);
+  
+  margin-bottom: calc(4% /5);
+}
+
+.box {
+  width: 24%; /* Ширина блока */
+  
+  min-height: 170px;
+  padding-bottom: 0%; /* Высота блока будет равна 50% от его ширины */
+  position: relative; /* Родительский блок должен иметь позиционирование */
+  
+  float:left;
+  background-color: rgb(90, 140, 240);
+
+  margin-left: calc(4% /5);
+  
+  margin-top: calc(4% /5);
+  
+  margin-bottom: calc(4% /5);
+
+}
+
+.box > {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  /* Таким образом, текст будет отображен в центре блока */
+}
+.box>img {
+  width: 70%;
+  padding:5%;
+}
+
+.box>p {
+  margin-top: 5px;
+}
+
+.bold{
+  font-weight:bold;}
+
+
+
+.fourte {
+  width: 45%!important;
 }
