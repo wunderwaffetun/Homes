@@ -2,10 +2,10 @@ import React from 'react'
 import "./Modal.css"
 
 interface Modal {
-  width: number,
-  height: number,
+  width: string,
+  height: string,
   isOpen: boolean,
-  children: JSX.Element
+  children: JSX.Element | JSX.Element[]
 }
 
 const Modal: React.FC<Modal> = ({width, height, isOpen, children}) => {
