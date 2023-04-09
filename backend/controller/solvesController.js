@@ -1,5 +1,5 @@
-export default class projectControl {
-  async getSolve(req, res) {}
+export default class solveControl {
+  async getSolves(req, res) {}
   async getOneSolve(req, res) {}
   async postSolve(req, res) {}
   async putSolve(req, res) {}
