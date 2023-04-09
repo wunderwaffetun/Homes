@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MutableRefObject } from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import FileUpload from '../../component/FileUpload/FileUpload';
 
@@ -10,10 +10,11 @@ interface ICarouselCard {
     images: File[],
     OnSumbitSliderFiles: (e: React.FormEvent<HTMLFormElement>) => void
     deleteSlide: (i: number) => void,
-    setImages: (e: File[]) => void
+    setImages: (e: File[]) => void,
+    refer: React.RefObject<HTMLFormElement>
 }
 
-const CarouselCard: React.FC<ICarouselCard> = ({ adminPanel, images, OnSumbitSliderFiles, deleteSlide, setImages }) => {
+const CarouselCard: React.FC<ICarouselCard> = ({ adminPanel, images, OnSumbitSliderFiles, deleteSlide, setImages, refer }) => {
 
   return (
     <div className='sliderOne'>
@@ -21,9 +22,9 @@ const CarouselCard: React.FC<ICarouselCard> = ({ adminPanel, images, OnSumbitSli
         adminPanel ? 
             <div className='adminSlider'>
                 <Carousel infiniteLoop={true} dynamicHeight={true} showThumbs={false}>
-                    {images.map((item) => {
+                    {images?.map((item, i) => {
                         return (
-                        <div className='slideOne'>
+                        <div key={i} className='slideOne'>
                             <img className='imgSlide' src={URL.createObjectURL(item)} />
                         </div>
                         )
@@ -41,7 +42,7 @@ const CarouselCard: React.FC<ICarouselCard> = ({ adminPanel, images, OnSumbitSli
                         </div>
                         )
                     })}
-                <form className='centerForm' onSubmit={(e) => OnSumbitSliderFiles(e)}>
+                <form ref={refer} id='files' className='centerForm' onSubmit={(e) => OnSumbitSliderFiles(e)}>
                     <FileUpload files={images} setFiles={setImages} />
                 </form>    
                 </div>

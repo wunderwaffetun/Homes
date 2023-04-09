@@ -4,10 +4,11 @@ import "./DescriptionOfCard.css"
 interface IDescCard {
     adminPanel: boolean,
     description: string,
-    setDescription: (e: string) => void
+    setDescription: (e: string) => void,
+    OnSumbitSliderFiles: (e: React.FormEvent<HTMLFormElement>) => void,
 }
 
-const DescriptionOfCard: React.FC<IDescCard> = ({adminPanel, description, setDescription}) => {
+const DescriptionOfCard: React.FC<IDescCard> = ({adminPanel, description, setDescription, OnSumbitSliderFiles}) => {
   return (
     <div className=''>
           {adminPanel ?
@@ -16,7 +17,7 @@ const DescriptionOfCard: React.FC<IDescCard> = ({adminPanel, description, setDes
               <p>{description}</p>
             </div>
           :
-            <form className='container' action="">
+            <form id='files' className='container' onSubmit={OnSumbitSliderFiles} action="">
               <h1>Описание</h1>
               <textarea onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)} value={description}></textarea>
             </form>

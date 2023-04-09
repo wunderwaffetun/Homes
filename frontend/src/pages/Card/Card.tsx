@@ -1,26 +1,58 @@
 import React from 'react'
-import "./Card.css"
-import ReactDOM from 'react-dom';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Modal from '../../component/Modal/Modal.js';
 import axios from 'axios'
-import DescriptionOfCard from '../../component/DescriptionOfCard/DescriptionOfCard.tsx';
-import DocumentsCard from '../../component/DocumentsCard/DocumentsCard.tsx';
-import CarouselCard from '../../component/CarouselCard/CarouselCard.tsx';
+import { useParams } from 'react-router-dom'
+
+import "./Card.css"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+
+import DescriptionOfCard from '../../component/DescriptionOfCard/DescriptionOfCard';
+import DocumentsCard from '../../component/DocumentsCard/DocumentsCard';
+import CarouselCard from '../../component/CarouselCard/CarouselCard';
+import Modal from '../../component/Modal/Modal'
 
 
-const images: File[]= [
-  
-]
+interface fetchData {
+  slides: File[],
+  docs: File[],
+  description: string,
+}
 
-const role = "admin"
+
+
+const param = 1
+
+const role: string = "admin"
 
 const Card: React.FC = () => {
+  const id = useParams()
+
+  const refFormSlider = React.useRef<HTMLFormElement>(null)
+  const refFormDocs = React.useRef<HTMLFormElement>(null)
 
   const [description, setDescription] = React.useState<string>("")
-  const [filesSlider, setFilesSlider] = React.useState<File[]>(images)
-  const [filesDocs, setFilesDocs] = React.useState<File[]>(images)
-  const [adminPanel, setAdminPanel] = React.useState<boolean>(false)
+  const [filesSlider, setFilesSlider] = React.useState<File[]>([])
+  const [filesDocs, setFilesDocs] = React.useState<File[]>([])
+  const [filesSliderforSave, setFilesSliderforSave] = React.useState<File[]>([])
+  const [filesDocsforSave, setFilesDocsforSave] = React.useState<File[]>([])
+
+  const [adminPanel, setAdminPanel] = React.useState<boolean>(true)
+
+  const [deleteModal, setDeleteModal] = React.useState<boolean>(false)
+
+
+  React.useEffect(() => {
+    axios
+      .get<fetchData>(`http://localhost:5001/project/${id}`)
+      .then((response) => {
+        setFilesSlider(response.data.slides)
+        setFilesSliderforSave(response.data.slides)
+        setFilesDocs(response.data.docs)
+        setFilesDocsforSave(response.data.docs)
+        setDescription(response.data.description)
+      })
+      .catch((error) => console.log(error))
+  }, [])
+
 
   const deleteDoc = (i: number) => {
     setFilesDocs(prev => prev.filter((item, j) => j !== i))
@@ -30,66 +62,125 @@ const Card: React.FC = () => {
     setFilesSlider(prev => prev.filter((item, j) => j !== i))
   }
 
-  const OnSumbitSliderFiles = (e) => {
+  const deleteProject = (i: number) => {
+    axios.delete("")
+    setDeleteModal(false)
+  }
+
+  const OnSumbitSliderFiles = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target.form);
+
+    let formdata
+
+    if(refFormSlider.current !== null) {
+      formdata = new FormData(refFormSlider.current)
+    }
+    
 
     axios
-      .post("http://localhost:3000/upload", formData, {
+      .post("http://localhost:3000/upload", formdata, {
         headers: {
           "Content-type": "multipart/form-data",
         },
       })
-      .then((res) => {
-        console.log(`Success` + res.data);
+      .catch((err) => {
+        console.log(err);
+      });
+      setAdminPanel(prev => !prev)
+  }
+
+  const OnSumbitDocsFiles = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    let formdata
+
+    if (refFormSlider.current !== null) {
+      formdata = new FormData(refFormSlider.current)
+    }
+    
+
+    axios
+      .post("http://localhost:3000/upload", formdata, {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
       })
       .catch((err) => {
         console.log(err);
       });
   }
 
-  const Save = () => {
-    setAdminPanel(prev => !prev)
+  const OnSumbitTextAreaFiles = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    axios
+      .post("http://localhost:3000/upload", description, {
+        headers: {
+          "Content-type": "multipart/form-data",
+        },
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   const Reject = () => {
     setAdminPanel(prev => !prev)
-    setFilesSlider(images)
-    setFilesDocs(images)
+    setFilesSlider(filesSliderforSave)
+    setFilesDocs(filesDocsforSave)
     setDescription("")
   }
 
   return (
     <div className='container'>
-        {adminPanel ? 
-          <div className='redactorButton' onClick={() => setAdminPanel(prev => !prev)}>
-            редактировать
-          </div>
+      {
+         role === "admin" ? 
+         <>
+          {adminPanel ? 
+            <button className='redactorButton' onClick={() => setAdminPanel(prev => !prev)}>
+              редактировать
+            </button>
+          :
+            <div className='redactorButton'>
+              <button type='submit' form='files'>сохранить</button>
+              <button onClick={() => Reject()}>отменить</button>
+            </div>
+          }
+        </>
         :
-          <div className='redactorButton'>
-            <p onClick={() => Save()}>сохранить</p>
-            <p onClick={() => Reject()}>отменить</p>
-          </div>
-        }
+        <></>
+      }
+        
         <div className=''>
           <h1 className='ProjectName'>Название Проекта</h1>
         </div>
-        <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} />
+        <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} refer={refFormSlider} />
 
-        <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={images} deleteDoc={deleteDoc} OnSumbitSliderFiles={OnSumbitSliderFiles} setImages={setFilesDocs} />
+        <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={filesDocsforSave} deleteDoc={deleteDoc} OnSumbitSliderFiles={OnSumbitDocsFiles} setImages={setFilesDocs} refer={refFormDocs} />
 
-        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription}  />
+        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription} OnSumbitSliderFiles={OnSumbitTextAreaFiles}  />
 
-        {adminPanel ? 
-          <div className='redactorButton' onClick={() => setAdminPanel(prev => !prev)}>
+        {adminPanel && role === "admin" ? 
+          <button className='deleteButton' onClick={() => setDeleteModal(true)}>
             Удалить проект
-          </div>
+          </button>
         :
-          <div className='redactorButton'>
-            <p onClick={() => Save()}>сохранить</p>
-            <p onClick={() => Reject()}>отменить</p>
-          </div>
+          <></>
         }
+
+        {deleteModal && role === "admin" ?
+          <Modal width={"30%"} height={"30%"} isOpen={deleteModal}>
+            <div className='modalDelete'>
+              <h1 className='textDelete'>вы уверены?</h1>
+              <div>
+                <button onClick={() => deleteProject(param)}>да</button>
+                <button onClick={() => setDeleteModal(false)}>нет</button>
+              </div>
+            </div>
+          </Modal>
+        :
+          <></>  
+        }  
     </div>
   )
 }

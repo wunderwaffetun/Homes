@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 
 import "./index.css";
 import { App } from "./App";
+import Card from "./pages/Card/Card";
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -14,7 +15,7 @@ const root = ReactDOM.createRoot(
 //ReactDOM.render(<App />, document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Card />
   </React.StrictMode>
 );
 

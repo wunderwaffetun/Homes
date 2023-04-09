@@ -15,7 +15,7 @@ function FileUpload({ files, setFiles } : IFiles) {
     setFiles([...files, ...newFiles]);
   };
 
-  const handleFileRemove = (index) => {
+  const handleFileRemove = (index: number) => {
     const newFiles = [...files];
     newFiles.splice(index, 1);
     setFiles(newFiles);
