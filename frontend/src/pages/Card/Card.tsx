@@ -3,7 +3,7 @@ import "./Card.css"
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-import Modal from '../../component/Modal/Modal.tsx';
+import Modal from '../../component/Modal/Modal';
 
 const images=[
   'https://picsum.photos/250/250?image=0',
