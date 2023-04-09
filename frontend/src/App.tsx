@@ -4,6 +4,7 @@ import Header from "./component/Header/Header";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Activities from "./pages/Activities/Activities";
 import Auth from "./pages/Auth/Auth";
+import Card from "./pages/Card/Card";
 
 const router = createBrowserRouter([
   { 
@@ -19,9 +20,17 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
       },
+      {
+        path: '/cards/:card',
+        element: <Card />
+      },
       { 
         path: '/activities',
-        element: <Activities />
+        element: <Activities />,
+      },
+      {
+        path: '/activities/:activity',
+        element: <>activity</>
       },
       { 
         path: '/auth',
@@ -33,7 +42,7 @@ const router = createBrowserRouter([
 ])
 
 
- export  const App: React.FC = () => {
+ export const App: React.FC = () => {
   
   
   return (

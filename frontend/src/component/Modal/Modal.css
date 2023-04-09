@@ -1,0 +1,6 @@
+.modal {
+    position: absolute;
+    top: 50%;                         /* 3 */
+    transform: translate(0, -50%);
+    background-color: white;
+}

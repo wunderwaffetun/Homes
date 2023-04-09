@@ -72,14 +72,13 @@ const Home: React.FC = () => {const [ coords, setCoords ] = useState<coordinates
         <div className="center">
           <div className="mainPart">
             <div className="blockUp">
-              <a
+              <a href='./'
                 className="btn-floating btn-large waves-effect waves-light blue leftBut"
                 id="btnFilter"
               >
                 <i className="large material-icons">build</i>
               </a>
-              <h1 className="center">Реестр объектов</h1>
-              <a
+              <a href='./'
                 className="btn-floating btn-large waves-effect waves-light yellow rightBut"
                 id="btnProfile"
               >
