@@ -28,7 +28,6 @@
 
 .slidesChange {
     display: flex;
-    border: 2px black solid;
     width: 100%;
     flex-wrap: wrap;
     overflow-y: auto;
@@ -48,4 +47,16 @@
     z-index: 3;
     top: -15px;
     right: 5px;
+}
+
+.centerForm {
+    display: flex;
+    width: 100%;
+}
+
+.adminSlider {
+    display: flex;
+    width: 80%;
+    height: 100%;
+    border: 2px white solid;
 }

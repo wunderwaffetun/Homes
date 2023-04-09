@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from 'react'
+import React from 'react'
 import "./Card.css"
 import ReactDOM from 'react-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -8,44 +8,18 @@ import DescriptionOfCard from '../../component/DescriptionOfCard/DescriptionOfCa
 import DocumentsCard from '../../component/DocumentsCard/DocumentsCard.tsx';
 import CarouselCard from '../../component/CarouselCard/CarouselCard.tsx';
 
-const images=[
-  'https://picsum.photos/250/250?image=0',
-  'https://picsum.photos/250/250?image=1',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
-  'https://picsum.photos/250/250?image=0',
-  'https://picsum.photos/250/250?image=1',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
-  'https://picsum.photos/250/250?image=0',
-  'https://picsum.photos/250/250?image=1',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
-  'https://picsum.photos/250/250?image=0',
-  'https://picsum.photos/250/250?image=1',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
-  'https://picsum.photos/250/250?image=0',
-  'https://picsum.photos/250/250?image=1',
-  'https://picsum.photos/250/250?image=2',
-  'https://picsum.photos/250/250?image=3',
-  'https://picsum.photos/250/250?image=4',
+
+const images: File[]= [
   
 ]
 
 const role = "admin"
 
 const Card: React.FC = () => {
+
   const [description, setDescription] = React.useState<string>("")
-  const [filesSlider, setFilesSlider] = React.useState<string[]>(images)
-  const [filesDocs, setFilesDocs] = React.useState<string[]>(images)
+  const [filesSlider, setFilesSlider] = React.useState<File[]>(images)
+  const [filesDocs, setFilesDocs] = React.useState<File[]>(images)
   const [adminPanel, setAdminPanel] = React.useState<boolean>(false)
 
   const deleteDoc = (i: number) => {
@@ -100,11 +74,11 @@ const Card: React.FC = () => {
         <div className=''>
           <h1 className='ProjectName'>Название Проекта</h1>
         </div>
-        <CarouselCard adminPanel={adminPanel} images={images} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} />
+        <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} />
 
-        <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={images} deleteDoc={deleteDoc} />
+        <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={images} deleteDoc={deleteDoc} OnSumbitSliderFiles={OnSumbitSliderFiles} setImages={setFilesDocs} />
 
-        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription} />
+        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription}  />
 
         {adminPanel ? 
           <div className='redactorButton' onClick={() => setAdminPanel(prev => !prev)}>

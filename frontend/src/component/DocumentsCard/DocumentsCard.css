@@ -7,7 +7,7 @@
 
 .documents {
     display: flex;
-    border: 2px black solid;
+    border: 2px white solid;
     width: 90%;
     flex-wrap: wrap;
     overflow-y: auto;
@@ -40,9 +40,14 @@
     right: 5px;
 }
 
+.centerForm {
+    display: flex;
+    width: 100%;
+}
+
 .adminSlider {
     display: flex;
     width: 80%;
     height: 100%;
-    border: 2px black solid;
+    border: 2px white solid;
 }
