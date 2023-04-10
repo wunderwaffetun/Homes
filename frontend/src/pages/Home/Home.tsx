@@ -86,15 +86,6 @@ else
 return;
 */
 },inputValue);
-/*-----------------------------*/
-
-
-
-  
-
-
- 
-
 
       return (
         <div className="center">
