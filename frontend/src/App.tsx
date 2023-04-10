@@ -5,6 +5,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Activities from "./pages/Activities/Activities";
 import Auth from "./pages/Auth/Auth";
 import Card from "./pages/Card/Card";
+import Solves from "./pages/Solves/Solves";
 
 const router = createBrowserRouter([
   { 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/cards/:card',
+        path: '/cards/:id',
         element: <Card />
       },
       { 
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
         element: <Activities />,
       },
       {
-        path: '/activities/:activity',
+        path: '/activities/:id',
         element: <>activity</>
+      },
+      {
+        path: '/decisions/:id',
+        element: <Solves />
       },
       { 
         path: '/auth',

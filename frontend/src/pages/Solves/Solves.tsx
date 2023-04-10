@@ -3,6 +3,7 @@ import React from 'react'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import "./Solves.css"
 import Calendar from 'react-calendar';
+import { useParams } from 'react-router-dom';
 
 
 function randomDate(start: Date, end: Date) {
@@ -52,8 +53,9 @@ const BetterCallSaul: Solves[] = [
     },
 ]
 
-const Solves: React.FC<ISolves> = ({ id }) => {
-
+const Solves: React.FC = () => {
+    let { id } = useParams<string>()
+    console.log(id)
     const refTable = React.useRef<HTMLTableElement>(null)
 
     const [AllSolves, setAllSolves] = React.useState<Solves[]>([])
