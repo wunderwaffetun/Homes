@@ -18,6 +18,6 @@ class User {
 
 }
 
-const userController = new Auth()
+const userController = new User()
 
 export default userController
