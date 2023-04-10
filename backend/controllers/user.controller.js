@@ -1,4 +1,4 @@
-export default class User {
+class User {
   getUsers = async (req, res) => {
     res.status(200).json("work");
   };
@@ -15,3 +15,7 @@ export default class User {
     res.status(200).json("work");
   };
 }
+
+const userController = new User();
+
+export default userController;
