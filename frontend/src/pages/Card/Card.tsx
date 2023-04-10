@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { coordinates } from "../../pages/Home/Home"
-
 import "./Card.css"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"
@@ -145,21 +144,22 @@ const Card: React.FC = () => {
   return (
     <div className='container'>
       
-      <a className ="btn-floating btn-large waves-effect waves-light yellow rightBut" id="btnProfile"><i className="large material-icons">account_box</i></a>
+      {/*<a className ="btn-floating btn-large waves-effect waves-light yellow rightBut" id="btnProfile">
+      <i className="large material-icons">account_box</i></a>*/}
       {
          role === "admin" ? 
          <>
           {adminPanel ? 
-            <button className='redactorButton btn-floating btn-large waves-effect waves-light blue leftBut' id="btnFilter" onClick={() => setAdminPanel(prev => !prev)}>
-              <i className="large material-icons">build</i>
+            <button className='btn-floating btn-large waves-effect waves-light blue leftBut' id="btnFilter" onClick={() => setAdminPanel(prev => !prev)}>
+              <i className="large material-icons">create</i>
             </button>
           :
             <div className=''>
-              <button className="btn-floating btn-large waves-effect waves-light blue leftBut" id="btnFilter" onClick={() => Reject()}>
+              {/*<button className="btn-floating btn-large waves-effect waves-light blue leftBut" id="btnFilter" onClick={() => Reject()}>
                 <i className="large material-icons">create</i>
-              </button>
-              <button type='submit' className ="btn-floating btn-large waves-effect waves-light yellow rightBut" id="btnEdit" form='files' >
-                <i className="large material-icons">arrow_back</i>
+          </button>*/}
+              <button type='submit' className ="btn-floating btn-large waves-effect waves-light yellow leftBut" id="btnEdit" form='files' >
+                <i className="large material-icons">save</i>
               </button>
             </div>
           }
@@ -169,8 +169,9 @@ const Card: React.FC = () => {
       }
         
         <div className=''>
-          <h1 className='ProjectName'>Название Проекта</h1>
+          <h1 className='ProjectName'>{/*testObjects[Number(id)].name*/}Название Проекта</h1>
         </div>
+
         <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} refer={refFormSlider} />
 
         <NeedFucts adminPanel={adminPanel} coordinates={coord} />

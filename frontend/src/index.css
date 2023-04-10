@@ -158,7 +158,6 @@ body {
 }
 .normal {
   font-size: 28px!important;
-  color: aliceblue;
 }
 .blockWithoutMargin {
   display:block;
@@ -301,7 +300,7 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
 }
 
 .box {
-  width: 24%; /* Ширина блока */
+  width: 19%; /* Ширина блока */
   
   min-height: 170px;
   padding-bottom: 0%; /* Высота блока будет равна 50% от его ширины */
@@ -310,11 +309,11 @@ input:not([type]), input[type=text]:not(.browser-default), input[type=password]:
   float:left;
   background-color: rgb(90, 140, 240);
 
-  margin-left: calc(4% /5);
+  margin-left: calc(5% /6);
   
-  margin-top: calc(4% /5);
+  margin-top: calc(5% /6);
   
-  margin-bottom: calc(4% /5);
+  margin-bottom: calc(5% /6);
 
 }
 

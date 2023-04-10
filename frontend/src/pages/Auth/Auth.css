@@ -1,0 +1,125 @@
+.registration-cssave{
+    padding:50px 0;
+  }
+  
+  .registration-cssave form {
+    max-width:800px;
+    padding:40px 60px;
+    border-radius:15px;
+    box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color:#ffffff;
+  }
+  
+  .registration-cssave form h3 {
+    font-weight:bold;
+    margin-bottom:30px;
+  }
+  
+  .registration-cssave .item {
+    border-radius:10px;
+    margin-bottom:25px;
+    padding:5px 20px;
+  }
+  
+  .registration-cssave .create-account {
+    border-radius:60px;
+    
+    height: 50px;
+    padding:10px 20px;
+    font-size:18px;
+    font-weight:bold;
+    background-color:#3d7fd6;
+    border:none;
+    color:rgb(179, 68, 68);
+    margin-top:20px;
+  }
+  
+  @media (max-width: 576px) {
+    .registration-cssave form {
+      padding:70px 20px;
+    }
+  }
+.registration-cssave{
+    padding:50px 0;
+  }
+  
+  .registration-cssave form {
+    max-width:800px;
+    padding:40px 60px;
+    border-radius:15px;
+    box-shadow:4px 4px 15px rgba(0, 0, 0, 0.2);
+    background-color:#fff;
+  }
+  
+  .registration-cssave form h3 {
+    font-weight:bold;
+    margin-bottom:30px;
+  }
+  
+  .registration-cssave .item {
+    border-radius:10px;
+    margin-bottom:25px;
+    padding:5px 20px;
+  }
+  
+  .registration-cssave .create-account {
+    border-radius:60px;
+    padding:10px 20px;
+    font-size:18px;
+    font-weight:bold;
+    background-color:#3d7fd6;
+    border:none;
+    color:white;
+    margin-top:20px;
+  }
+  
+  @media (max-width: 576px) {
+    .registration-cssave form {
+      padding:70px 20px;
+    }
+  }
+
+button{
+    border-radius: 3px;
+    background: #98ffa1;
+}
+
+.NavigateButton{
+  text-decoration:none;
+  color:black;
+}
+
+
+
+.Page {
+    margin: 0;
+    height: 100%!important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color:transparent;
+  }
+  
+  .Page  {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+  .Page  {
+    
+    color: rgba(0,0,0,0.87)!important;
+    background-color:#214c84!important;
+    background-blend-mode:overlay;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:100%!important;
+  }
+
+
+
