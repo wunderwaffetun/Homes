@@ -1,8 +1,15 @@
-class User {
+import User from "../models/User.js";
+import Role from "../models/Role.js";
+class UserCl {
 
-  getUsers = async (req, res) => {
-    res.status(200).json('work')
-  }
+  async getUsers(req, res) {
+    try {
+        const users = await User.find()
+        res.json(users)
+    } catch (e) {
+        console.log(e)
+    }
+}
 
   getUser = async (req, res) => {
     res.status(200).json('work')
@@ -16,8 +23,11 @@ class User {
     res.status(200).json('work')
   }
 
+  
+
+
 }
 
-const userController = new User()
+const userController = new UserCl()
 
 export default userController
