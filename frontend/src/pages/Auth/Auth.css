@@ -82,6 +82,8 @@
 button{
     border-radius: 3px;
     background: #98ffa1;
+    font-size: 28px;
+    color: black;
 }
 
 .NavigateButton{

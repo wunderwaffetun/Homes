@@ -19,7 +19,7 @@ interface hint {
 }
 
 export const testObjects: hint[] = [
-  {id: 1, name: 'ТЦ Метрополис', src : "https://invme-s3.s3.amazonaws.com/lg9bzc6u8mkrtniksjer.jpg", adres:"Ленинградское ш., 16А, стр. 4", type:"Пожароопасные"},
+  {id: 1, name: 'ТЦ Метрополис', src : "https://invme-s3.s3.amazonaws.com/lg9bzc6u8mkrtniksjer.jpg", adres:"Ленинградское ш., 16А, стр. 4", type:"Пожароопасные Ветхое"},
   {id: 2, name: 'СК Металург', src : "http://moscowalk.ru/images/2013/sport/metalurg/Metallurg_stadium1.jpg", adres:"гдето на бауманской", type:"Ветхое"},
   {id: 3, name: 'ГЗ Бауманки', src : "https://avatars.mds.yandex.net/i?id=abad6c751bc45eac93e458ef189310fc6d5c78a8-6218602-images-thumbs&n=13", adres:"гдето на бауманской", type:"Пожароопасные"},
   {id: 4, name: 'УЛК Бауманки', src : "https://rismdata.nostroy.ru/logo/logoman041.png",adres:"гдето на бауманской", type:"Ветхое"},
@@ -47,7 +47,7 @@ const Home: React.FC = () => {const [ coords, setCoords ] = useState<coordinates
   const [ activeType, setActiveType ] = useState<string>('')
   const [ countFire, setCountFire ] = useState<number>(5)
   const [ countSanction, setCountSanction ] = useState<number>(4)
-  const [ countCrush, setCountCrush ] = useState<number>(4)
+  const [ countCrush, setCountCrush ] = useState<number>(5)
   const [ countComunic, setCountComunic ] = useState<number>(2)
   const [ countAll, setCountAll ] = useState<number>(15)
   const navigate = useNavigate()
@@ -65,19 +65,21 @@ const UpdateCount = (obj:hint[]) => {
   var countAll = 0;
   for (let i=0;i<14;i++)
   {
-    if (obj[i].type == "Ветхое")
+    if (obj[i].type.indexOf("Ветхое")>=0)
     countCrush +=1;
 
-    if (obj[i].type == "Пожароопасные")
+    if (obj[i].type.indexOf("Пожароопасные")>=0)
     countFire +=1;
     
-    if (obj[i].type == "Без санкции")
+    if (obj[i].type.indexOf("Без санкции")>=0)
     countSanction +=1;
     
-    if (obj[i].type == "Без комуникаций")
+    if (obj[i].type.indexOf("Без комуникаций")>=0)
     countComunic +=1;
+
+    
+    countAll+=1;
   }
-  countAll = countComunic + countSanction + countFire +countCrush;
   setCountCrush(countCrush);
   setCountSanction(countSanction);
   setCountFire(countFire);
@@ -100,7 +102,7 @@ const goToCard = (id:number) => {
 
 const res = testObjects.map(function(item) {
 console.log (item.name.indexOf(inputValue)>= 0);
-if((item.name.indexOf(inputValue)>= 0) && ((item.type == activeType) || (activeType == "")))
+if((item.name.indexOf(inputValue)>= 0) && ((item.type.indexOf(activeType)>= 0) || (activeType == "")))
 {
   return (
     <p key={item.id} className="border fullScreen block gray heightlyBlockObject normal forMicroCard" 

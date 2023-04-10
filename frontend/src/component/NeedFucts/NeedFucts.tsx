@@ -26,7 +26,7 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
             <div className = "blockUp" >
                 
             </div>
-          <Link to={`/decisions/${id}`} > Решения </Link>
+          <Link to={`/decisions/${id}`} > <button className=''>Решения</button> </Link>
         </div>
     </div>
     :   
@@ -59,7 +59,7 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
                 </select>
                 </div>
   
-                <div className="blockWithoutMargin margin fiftin">
+                {/*<div className="blockWithoutMargin margin fiftin">
                   <label htmlFor="adres" className = "blockWithoutMargin textForCard">Район</label><br></br>
                   <select className="blockObject border normal fullScreen">
                     <option defaultValue="" disabled selected>Выбрать район</option>
@@ -76,7 +76,7 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
                     <option defaultValue="11">ТАО</option>
                     <option defaultValue="12">НМАО</option>
                   </select>
-                </div>
+                </div>*/}
   
                 <div className="blockWithoutMargin margin fiftin">
                   <label htmlFor="adres" className = "textForCard blockWithoutMargin">Адрес</label><br></br>
@@ -85,14 +85,14 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
                   </div>
                 </div> 
   
-                <div className="blockWithoutMargin margin fiftin">
+                {/*<div className="blockWithoutMargin margin fiftin">
                   <label htmlFor="okrug" className = "textForCard blockWithoutMargin">
                     Округ</label><br></br>
                   <div className="normal blockObject border hungreed">
                     <input name = "okrud" id = "okrug" type="text" 
                     placeholder="Округ.." className="normal blockObject hungreed"></input>
                   </div>
-                </div>
+                </div>*/}
   
                 <div className="blockWithoutMargin margin fiftin">
                   <label htmlFor="raion" className = "textForCard blockWithoutMargin">
@@ -145,7 +145,7 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
                 
                 <div className="blockWithoutMargin margin fiftin">
                   <label htmlFor="user" className = "textForCard blockWithoutMargin">
-                    Фактический пользователь</label><br></br>
+                    Пользователь</label><br></br>
                   <div className="normal blockObject border hungreed">
                     <input name = "user" id = "user" type="text" 
                     placeholder="Пользователь.." className="normal blockObject hungreed inputText"></input>

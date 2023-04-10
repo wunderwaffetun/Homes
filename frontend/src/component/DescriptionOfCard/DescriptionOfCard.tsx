@@ -14,7 +14,10 @@ const DescriptionOfCard: React.FC<IDescCard> = ({adminPanel, description, setDes
           {adminPanel ?
             <div className='container'>
               <h1>Описание</h1>
-              <p>{description}</p>
+              <p>{description} 
+        <div>
+          <div>Тип: <p className = "normal">Ветхое и Пажароопасное</p><br></br>Адрес: <p className = "normal">Ленинградское ш., 16А, стр. 4 </p><br/> Состояние: <p className = "normal">Приемлимое</p></div>
+        </div></p>
             </div>
           :
             <form id='files' className='container' onSubmit={OnSumbitSliderFiles} action="">

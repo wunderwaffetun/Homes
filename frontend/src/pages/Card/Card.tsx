@@ -169,17 +169,20 @@ const Card: React.FC = () => {
       }
         
         <div className=''>
-          <h1 className='ProjectName'>{/*testObjects[Number(id)].name*/}Название Проекта</h1>
-        </div>
-
+          <h1 className='ProjectName'>{/*testObjects[Number(id)].name*/}ТЦ Метрополис</h1>
+        </div >
+        <div>
+        <p className='center'>Изображения</p>
         <CarouselCard adminPanel={adminPanel} images={filesSlider} OnSumbitSliderFiles={OnSumbitSliderFiles} deleteSlide={deleteSlide} setImages={setFilesSlider} refer={refFormSlider} />
-
-        <NeedFucts adminPanel={adminPanel} coordinates={coord} />
 
         <DocumentsCard adminPanel={adminPanel} filesDocs={filesDocs} images={filesDocsforSave} deleteDoc={deleteDoc} OnSumbitSliderFiles={OnSumbitDocsFiles} setImages={setFilesDocs} refer={refFormDocs} />
 
-        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription} OnSumbitSliderFiles={OnSumbitTextAreaFiles}  />
+        <NeedFucts adminPanel={adminPanel} coordinates={coord} />
 
+        <DescriptionOfCard adminPanel={adminPanel} description={description} setDescription={setDescription} OnSumbitSliderFiles={OnSumbitTextAreaFiles}  />
+        
+        
+        </div>
         {adminPanel && role === "admin" ? 
           <button className='deleteButton' onClick={() => setDeleteModal(true)}>
             Удалить проект
