@@ -9,6 +9,15 @@ class UserCl {
       console.log(e);
     }
   }
+  async getUser(req, res) {
+    try {
+      const { id } = req.params;
+      const user = await User.findOne(id);
+      res.json(user);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 
 const userController = new UserCl();
