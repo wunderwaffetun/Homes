@@ -10,17 +10,14 @@ function randomDate(start: Date, end: Date) {
     return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
   }
 
-interface ISolves {
-    id: number
-}
 
-interface Solves {
+interface Solve {
     solve: string,
     date: Date,
     responsiblePerson: string
 }
 
-const BetterCallSaul: Solves[] = [
+const BetterCallSaul: Solve[] = [
     {
         solve: 'reer',
         date: new Date('December 17, 2023 03:24:00'),
@@ -54,12 +51,14 @@ const BetterCallSaul: Solves[] = [
 ]
 
 const Solves: React.FC = () => {
+
     let { id } = useParams<string>()
     console.log(id)
+
     const refTable = React.useRef<HTMLTableElement>(null)
 
-    const [AllSolves, setAllSolves] = React.useState<Solves[]>([])
-    const [solves, setSolves] = React.useState<Solves[]>([])
+    const [AllSolves, setAllSolves] = React.useState<Solve[]>([])
+    const [solves, setSolves] = React.useState<Solve[]>([])
 
     const [openCalendar, setOpenCalendar] = React.useState<boolean>(false)
     const [changeDate, onChangeDate] = React.useState<any>(new Date());
@@ -68,7 +67,7 @@ const Solves: React.FC = () => {
     const [search, setSearch] = React.useState<string>("")
 
     React.useEffect(() => {
-        axios.get<Solves[]>("/" + id)
+        axios.get<Solve[]>("/")
             .then((response) => setSolves(response.data))
             .catch((error) => console.log(error))
         setSolves(BetterCallSaul) 
@@ -76,17 +75,21 @@ const Solves: React.FC = () => {
     }, [])
 
     React.useEffect(() => {
-        axios.get<Solves[]>("/" + id + search)
+        axios.get<Solve[]>("/"+ search)
             .then((response) => setSolves(response.data))
             .catch((error) => console.log(error))
     }, [search])
 
     React.useEffect(() => {
-        setSolves(AllSolves.filter((item) => item.date.getFullYear() - changeDate.getFullYear() === 0 &&
+        if (openCalendar) {
+            setSolves(AllSolves.filter((item) => item.date.getFullYear() - changeDate.getFullYear() === 0 &&
                                 item.date.getMonth() - changeDate.getMonth() === 0 &&
                                 item.date.getDay() - changeDate.getDay() === 0 &&
                                 item.date.getHours() - changeDate.getHours() <= 24))
-    }, [changeDate])
+        } else {
+            setSolves(AllSolves)
+        }
+    }, [changeDate, openCalendar])
 
   return (
     <div className='container'>

@@ -1,8 +1,9 @@
 import React from 'react'
 import { coordinates } from "../../pages/Home/Home"
-import "./NeedFucts.css"
 import { Link, useParams } from 'react-router-dom'
 import "./NeedFucts.css"
+import "./NeedFucts.css"
+
 
 interface INeedFucts {
     adminPanel: boolean,
@@ -14,7 +15,9 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
 
     const [nameObject, setNameObject] = React.useState<string>("")    
     const [coord, setCoord] = React.useState<coordinates>(coordinates)
-    const {id} = useParams<string>()
+
+    const { id } = useParams<string>()
+
   return (
     <>
     {adminPanel ? 
@@ -23,9 +26,7 @@ const NeedFucts: React.FC<INeedFucts> = ( { adminPanel, coordinates } ) => {
             <div className = "blockUp" >
                 
             </div>
-            {/*<Map coordinates={coord}/>*/}
-            <Link to = {`/decisions/${id}`}><p className='normal'>Решение</p></Link>
-
+          <Link to={`/decisions/${id}`} > Решения </Link>
         </div>
     </div>
     :   

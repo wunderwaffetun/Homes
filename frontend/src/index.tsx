@@ -15,7 +15,6 @@ const root = ReactDOM.createRoot(
 //ReactDOM.render(<App />, document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <Solves id={1} /> */}
     <App />
   </React.StrictMode>
 );
