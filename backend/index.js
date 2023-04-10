@@ -6,7 +6,8 @@ import * as dotenv from "dotenv";
 import cors from "cors";
 import { db } from "./config/db.js";
 import * as mongoose from "mongoose";
-
+import { authRouter } from "./routers/auth.router.js";
+import { userRouter } from "./routers/user.router.js"
 
 
 const app = express();
@@ -24,6 +25,8 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); //not use, need for handle form's action
 app.use(bodyParser.json());
+app.use('/', authRouter)
+app.use('/', userRouter)
 
 
 

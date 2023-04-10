@@ -18,6 +18,6 @@ class User {
 
 }
 
-const userRouter = new Auth()
+const userController = new Auth()
 
-export default userRouter
+export default userController
