@@ -2,4 +2,4 @@ import Router from "express";
 import authController from "../controller/authController";
 const router = new Router();
 
-router.get("/login", authController.getAuth);
+router.post("/login", authController.getAuth);
